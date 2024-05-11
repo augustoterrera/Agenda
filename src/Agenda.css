@@ -6,7 +6,7 @@
     gap: 10px;
 }
 .card{
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     border: 1px solid rgb(148, 148, 148);
     width: 90%;
