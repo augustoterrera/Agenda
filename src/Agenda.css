@@ -1,0 +1,17 @@
+.agenda{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    width: 80%;
+    margin: 0 auto;
+    gap: 10px;
+}
+.card{
+    color: white;
+    text-align: center;
+    border: 1px solid rgb(148, 148, 148);
+    width: 90%;
+    box-shadow: 3px 5px 3px black;
+}
+.card strong{
+    margin-left: 200px;
+}

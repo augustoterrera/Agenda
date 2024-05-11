@@ -1,0 +1,10 @@
+.fav{
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.fav:hover{
+    transform: translate(0.5px, 2px);
+    transition: 0.3s;
+}
