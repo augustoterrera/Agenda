@@ -16,31 +16,30 @@ const Formulario = ({ getDatos }) => {
     const nuevosDatos = { nombre, apellido, telefono }
     getDatos(nuevosDatos)
 
-        // Limpiar los campos después de agregar los datos
-        setNombre('');
-        setApellido('');
-        setTelefono('');
+    // Limpiar los campos después de agregar los datos
+    setNombre('');
+    setApellido('');
+    setTelefono('');
   }
   return (
     <>
-      <h1 style={{ textAlign: 'center', border: '1px solid black' }}>Agenda - Agregar Contactos</h1>
+      <h1 style={{ textAlign: 'center', border: '1px solid black' }}>Agenda - Agregar / Eliminar Contactos</h1>
       <div className="formularioAdd">
         <form>
           <div className="mb-3">
             <label htmlFor="nombre" className="form-label">Nombre</label>
-            <input type="text" className="form-control" id="nombre" aria-describedby="emailHelp" value={nombre} onChange={(e) => 
-              { setNombre(e.target.value) }} required autoComplete="off"/>
+            <input type="text" className="form-control" id="nombre" aria-describedby="emailHelp" value={nombre} onChange={(e) => { setNombre(e.target.value) }} required autoComplete="off" />
             <div id="emailHelp" className="form-text"> </div>
           </div>
           <div className="mb-3">
             <label htmlFor="apellido" className="form-label">Apellido</label>
-            <input type="text" className="form-control" id="apellido" value={apellido} onChange={(e) => 
+            <input type="text" className="form-control" id="apellido" value={apellido} onChange={(e) =>
               setApellido(e.target.value)} required autoComplete="off" />
           </div>
           <div className="mb-3">
             <label htmlFor="telefono" className="form-label">Telefono</label>
-            <input type="number" className="form-control" id="telefono" value={telefono} onChange={(e) => 
-              setTelefono(e.target.value)} required maxLength={15} autoComplete="off"/>
+            <input type="number" className="form-control" id="telefono" value={telefono} onChange={(e) =>
+              setTelefono(e.target.value)} required maxLength={15} autoComplete="off" />
           </div>
           <button type="submit" className="btn btn-primary" onClick={cargar}>Agregar</button>
         </form>
