@@ -15,3 +15,16 @@
 .card strong{
     margin-left: 200px;
 }
+
+.formularioAdd{
+    font-size: larger;
+    font-weight: 900;
+    justify-content: center;
+    max-width: 150px;
+    display: flex;
+    margin: 0 auto;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
