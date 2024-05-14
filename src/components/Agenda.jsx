@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import Contacto from './Contacto'
 import '../Agenda.css'
@@ -16,8 +15,14 @@ const Agenda = ({datos}) => {
      //usuario que se carga en el formulario el id lo determino con la logitud de contactos
      setContactos(contactos=>[...contactos, {...usuario, id: contactos.length + 1}])
     }
+    const modificarDatos = (contacotosEditados, id)=>{
+      setContactos(contactos.map(c=> c.id === id ? {...contacotosEditados} : c))
+    }
     const cambiar = (id) =>{
         setContactos(contactos.map(c => c.id === id ? {...c, favorito: !c.favorito}: c))
+    }
+    const eliminarDatos=(id)=>{
+      setContactos(contactos.filter(c=>c.id !== id))
     }
     const fav = contactos.filter(c => c.favorito).sort((a,b) => a.nombre.localeCompare(b.nombre))
     const resto = contactos.filter(c => !c.favorito).sort((a,b) => a.nombre.localeCompare(b.nombre))
@@ -27,13 +32,23 @@ const Agenda = ({datos}) => {
     <div className='agenda'>
       {fav.map(c =>
         
-          <Contacto key={c.id} {...c} cambiar={cambiar}/>
-
+          <Contacto 
+          key={c.id} 
+          {...c} 
+          cambiar={cambiar} 
+          mDatos={modificarDatos}
+          eDatos={eliminarDatos}/>
+          
       )}
       {resto.map(c =>
         
-        <Contacto key={c.id} {...c} cambiar={cambiar}/>
-
+        <Contacto 
+        key={c.id} 
+        {...c} 
+        cambiar={cambiar} 
+        mDatos={modificarDatos}
+        eDatos={eliminarDatos}/>
+        
     )}
 
     </div>
