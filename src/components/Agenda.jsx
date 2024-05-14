@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import Contacto from './Contacto'
 import '../Agenda.css'
@@ -16,6 +15,9 @@ const Agenda = ({datos}) => {
      //usuario que se carga en el formulario el id lo determino con la logitud de contactos
      setContactos(contactos=>[...contactos, {...usuario, id: contactos.length + 1}])
     }
+    const modificarDatos = (contacotosEditados, id)=>{
+      setContactos(contactos.map(c=> c.id === id ? {...contacotosEditados} : c))
+    }
     const cambiar = (id) =>{
         setContactos(contactos.map(c => c.id === id ? {...c, favorito: !c.favorito}: c))
     }
@@ -27,12 +29,12 @@ const Agenda = ({datos}) => {
     <div className='agenda'>
       {fav.map(c =>
         
-          <Contacto key={c.id} {...c} cambiar={cambiar}/>
+          <Contacto key={c.id} {...c} cambiar={cambiar} mDatos={modificarDatos}/>
 
       )}
       {resto.map(c =>
         
-        <Contacto key={c.id} {...c} cambiar={cambiar}/>
+        <Contacto key={c.id} {...c} cambiar={cambiar} mDatos={modificarDatos}/>
 
     )}
 
